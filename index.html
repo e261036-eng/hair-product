@@ -32,6 +32,20 @@ button:hover{opacity:0.9}
 </head>
 <body>
 
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '644197594499070'); // Insert your pixel ID here
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=644197594499070&ev=PageView&noscript=1"/></noscript>
+<!-- End Facebook Pixel Code -->
+
 <header>
 <h1>🔥 প্রিমিয়াম কোয়ালিটি স্টাইলিশ লেদার হ্যান্ডব্যাগ</h1>
 <p>আকর্ষণীয় ডিজাইন | সীমিত সময়ের অফার</p>
@@ -60,7 +74,7 @@ button:hover{opacity:0.9}
 
 <div class="card">
 <h2>অর্ডার করুন</h2>
-<form action="https://formspree.io/f/mwvreava" method="POST">
+<form action="https://formspree.io/f/mwvreava" method="POST" id="orderForm">
 <input type="text" name="Customer Name" placeholder="আপনার নাম" required>
 <input type="tel" name="Phone Number" placeholder="মোবাইল নাম্বার" required>
 <input type="text" name="Address" placeholder="ডেলিভারি ঠিকানা" required>
@@ -130,6 +144,13 @@ let popup=document.getElementById('popup')
 popup.style.display='block'
 setTimeout(()=>{popup.style.display='none'},4000)
 },15000)
+
+// Facebook Pixel Purchase Event on form submit
+document.getElementById('orderForm').addEventListener('submit', function(){
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Purchase');
+  }
+});
 </script>
 
 </body>
